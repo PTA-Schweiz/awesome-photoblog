@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AwesomePhotoblog</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>AwesomePhotoblog</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img style="height: 25px" alt="Brand" src="http://www.pta.de/files/9814/0356/1755/logo_new_whiteBGcutCH.png">
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <%= yield %>
+</div>
+</body>
 </html>
