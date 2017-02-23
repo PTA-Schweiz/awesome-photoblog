@@ -1,0 +1,7 @@
+<div class="jumbotron">
+  <h1>Awesome Photoblog</h1>
+  <p>Welcome to our Awesome Photoblog. Sign up now to explore share your best snapshots!</p>
+  <% unless user_signed_in? %>
+    <%= link_to 'Sign UP', new_user_registration_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<h1>Upload Photo</h1>
+<%= bootstrap_form_for @photo_post, layout: :horizontal do |f| %>
+  <%= f.alert_message t('views.photo_posts.new.error') %>
+  <%= f.file_field :photo %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.submit 'Upload' %>
+<% end %>

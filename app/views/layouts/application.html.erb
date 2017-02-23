@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AwesomePhotoblog</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img style="height: 25px" alt="Brand" src="http://www.pta.de/files/9814/0356/1755/logo_new_whiteBGcutCH.png">
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Browse', photo_posts_path %></li>
+      <li><%= link_to 'Upload', new_photo_post_path %></li>
+    </ul>
+
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+      <p class="navbar-text navbar-right">Signed in as <%= current_user.email %></p>
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
+<div class="container">
+  <%= yield %>
+</div>
+</body>
+</html>
