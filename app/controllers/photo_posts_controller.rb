@@ -1,12 +1,16 @@
 class PhotoPostsController < ApplicationController
-  before_action :authenticate_user!
+  before_filter :authenticate_user!
 
-  def new
-    @photo_post = PhotoPost.new
+  def index
+    @photo_posts = PhotoPost.all.limit(10)
+  end
+
+  def show
+    @photo_post = PhotoPost.find params[:id]
   end
 
   def create
-    @photo_post = PhotoPost.new(photo_post_params)
+    @photo_post = PhotoPost.new photo_post_params
     @photo_post.user = current_user
     if @photo_post.save
       redirect_to photo_post_path @photo_post
@@ -15,18 +19,8 @@ class PhotoPostsController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
-  def index
-    @photo_posts = PhotoPost.all
-  end
-
-  def show
-    @photo_post = PhotoPost.find params[:id]
+  def new
+    @photo_post = PhotoPost.new
   end
 
   private

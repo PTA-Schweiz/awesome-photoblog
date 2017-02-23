@@ -13,10 +13,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
+  # Resize the photo to max width and height
   process resize_to_fit: [1920, 1080]
 
   # Create different versions of your uploaded files:
   version :thumb do
+    # resize this version to fill a box of width x height
     process resize_to_fill: [500, 300]
   end
 
@@ -25,5 +27,4 @@ class PhotoUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-
 end
